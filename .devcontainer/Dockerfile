@@ -33,7 +33,9 @@ RUN cd /home/vscode/neovim && git checkout release-0.7 && make -j4 && make CMAKE
 
 RUN mkdir -p /home/vscode/.config/nvim && git clone https://github.com/LunarVim/nvim-basic-ide.git /home/vscode/.config/nvim
 
-RUN cd /workspace/blog-app-rails && nvim &
+WORKDIR /workspaces/blog-app-rails
+
+RUN nvim &
 
 # [Optional] Uncomment this line to install additional gems.
 RUN gem install solargraph
