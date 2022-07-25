@@ -33,12 +33,12 @@ RUN cd /home/vscode/neovim && git checkout release-0.7 && make -j4 && make CMAKE
 
 RUN mkdir -p /home/vscode/.config/nvim && git clone https://github.com/LunarVim/nvim-basic-ide.git /home/vscode/.config/nvim
 
-RUN nvim &
+#RUN nvim &
 
 # [Optional] Uncomment this line to install additional gems.
-RUN gem install solargraph
+#RUN gem install solargraph
 
-RUN bundle install
+#RUN bundle install
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
