@@ -28,15 +28,17 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #RUN sudo ln -s /opt/nvim /usr/bin/nvim
 
-RUN cd $HOME && git clone https://github.com/neovim/neovim.git
-RUN cd $HOME/neovim && git checkout release-0.7 && make -j4 && make CMAKE_BUILD_TYPE=Release && make install
+RUN cd /home/vscode && git clone https://github.com/neovim/neovim.git
+RUN cd /home/vscode/neovim && git checkout release-0.7 && make -j4 && make CMAKE_BUILD_TYPE=Release && make install
 
-RUN mkdir -p $HOME/.config/nvim && git clone https://github.com/LunarVim/nvim-basic-ide.git $HOME/.config/nvim
+RUN mkdir -p /home/vscode/.config/nvim && git clone https://github.com/LunarVim/nvim-basic-ide.git /home/vscode/.config/nvim
 
 RUN nvim &
 
 # [Optional] Uncomment this line to install additional gems.
-# RUN gem install <your-gem-names-here>
+RUN gem install solargraph
+
+RUN bundle install
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
