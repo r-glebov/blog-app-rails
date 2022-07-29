@@ -15,26 +15,7 @@ RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSI
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends \
-    autoconf \
-    automake \
-    build-base \
-    cmake \
-    ninja \
-    coreutils \
-    curl \
-    git \
-    libtool \
-    libtool-bin \
-    zip \
-    unzip \
-    fzf \
-    ripgrep \
-    nodejs \
-    ninja-build \
-    gettext \
-    g++ \
-    pkgconf
+    && apt-get -y install --no-install-recommends git ripgrep python3 python3-pip nodejs ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config zip unzip
 
 ############################### neovim, plugged, coc ##########################
 
