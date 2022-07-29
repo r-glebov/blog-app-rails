@@ -15,7 +15,26 @@ RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSI
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends fzf git ripgrep python3 python3-pip nodejs ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config zip unzip
+    && apt-get -y install --no-install-recommends \
+    autoconf \
+    automake \
+    build-base \
+    cmake \
+    ninja \
+    coreutils \
+    curl \
+    git \
+    libtool \
+    libtool-bin \
+    zip \
+    unzip \
+    fzf \
+    ripgrep \
+    nodejs \
+    ninja-build \
+    gettext \
+    g++ \
+    pkg-config
 
 ############################### neovim, plugged, coc ##########################
 
@@ -29,13 +48,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #RUN sudo ln -s /opt/nvim /usr/bin/nvim
 
 RUN cd /home/vscode && git clone https://github.com/neovim/neovim.git
-RUN cd /home/vscode/neovim && git checkout release-0.7 && make -j4 && make CMAKE_BUILD_TYPE=Release && make install
+RUN cd /home/vscode/neovim && git checkout release-0.7 && make CMAKE_BUILD_TYPE=RelWithDebInfo install
 
 RUN mkdir -p /home/vscode/.config/nvim && git clone https://github.com/LunarVim/nvim-basic-ide.git /home/vscode/.config/nvim
 
 WORKDIR /workspaces/blog-app-rails
 
-RUN nvim &
+RUN INSTALL=1 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # [Optional] Uncomment this line to install additional gems.
 RUN gem install solargraph
