@@ -34,7 +34,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     ninja-build \
     gettext \
     g++ \
-    pkg-config
+    pkgconf
 
 ############################### neovim, plugged, coc ##########################
 
