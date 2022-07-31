@@ -31,7 +31,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN cd /home/vscode && git clone https://github.com/neovim/neovim.git
 RUN cd /home/vscode/neovim && git checkout release-0.7 && make CMAKE_BUILD_TYPE=RelWithDebInfo install
 
-RUN mkdir -p /home/vscode/.config/nvim && git clone https://github.com/LunarVim/nvim-basic-ide.git /home/vscode/.config/nvim && chown -R vscode:vscode /home/vscode/config/nvim
+RUN mkdir -p /home/vscode/.config/nvim && git clone https://github.com/LunarVim/nvim-basic-ide.git /home/vscode/.config/nvim && chown -R vscode:vscode /home/vscode/.config/nvim
 
 WORKDIR /workspaces/blog-app-rails
 
