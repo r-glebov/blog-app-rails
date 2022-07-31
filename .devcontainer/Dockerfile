@@ -37,17 +37,9 @@ WORKDIR /workspaces/blog-app-rails
 
 RUN gem install solargraph
 
-RUN nvim \
-    --headless \
-    -c 'autocmd User PackerComplete quitall' \
-    -c 'silent PackerSync'
+RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'silent PackerSync'
 
-RUN nvim \
-    --headless \
-    -c 'set cmdheight=50' \
-    -c 'silent TSInstallSync all' \
-    -c 'sleep 20' \
-    -c 'qall'
+RUN nvim --headless -c 'set cmdheight=50' -c 'silent TSInstallSync all' -c 'sleep 20' -c 'qall'
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
