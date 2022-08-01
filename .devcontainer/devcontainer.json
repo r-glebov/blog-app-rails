@@ -31,5 +31,6 @@
 	"features": {
 		"sshd": "latest",
 		"fish": "latest"
-	}
+	},
+	"postCreateCommand": "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'silent PackerSync' && nvim --headless -c 'set cmdheight=50' -c 'silent TSInstallSync all' -c 'sleep 20' -c 'qall'"
 }
