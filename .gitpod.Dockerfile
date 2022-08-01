@@ -1,8 +1,5 @@
 FROM gitpod/workspace-full
 
-# Install Rails
-RUN gem install rails webdrivers 
-
 # Install solargraph
 RUN gem install solargraph
 
